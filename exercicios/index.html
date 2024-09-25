@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Pet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1>Mundo <span>Pet</span></h1>
+            </div>
+            <nav class="menu">
+                <button class="btn-publicar">Publicar</button>
+                <ul>
+                    <li>Feed</li>
+                    <li>Perfil</li>
+                    <li>Sobre nós</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="photo-upload">
+                <h2>Nova foto</h2>
+                <div class="content-wrapper">
+                    <div class="photo-preview">
+                        <img src="img/Gato laranja.png" alt="Gato">
+                    </div>
+                    <form>
+                        <label for="titulo">Título da foto</label>
+                        <input type="text" id="titulo" placeholder="Gato Bonifácio">
+
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" rows="4">O gato bonifácio é um gato laranja, esperto e sapeca.</textarea>
+
+                        <label for="hashtags">Hashtags</label>
+                        <input type="text" id="hashtags" placeholder="Gato">
+                        <div class="hashtag-list">
+                            <span class="hashtag">Gato laranja</span>
+                            <span class="hashtag">Gato adulto</span>
+                        </div>
+                        
+                        <div class="buttons">
+                            <button type="button" class="btn-descartar">Descartar</button>
+                            <button type="submit" class="btn-publicar">Publicar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
