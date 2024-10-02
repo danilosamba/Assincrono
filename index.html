@@ -72,16 +72,15 @@
                             <label for="descricao">Descricao</label>
                             <textarea id="descricao" name="descricao"></textarea>
                     </div>
-                    <div>
-                            <label for="categoria">Tags</label>
-                            <input type="text" name="categoria" id="input-tags"/>
+                    <div>   
+                            <label for="categoria">Tags <sub style="font-size: 9px;">( FRONT-END, PROGRAMAÇÃO, DATA SCIENCE, FULL STACK, HTML, CSS, JAVASCRIPT )</sub></label>
+                            <input type="text" oninput="this.value = this.value.toUpperCase();" name="categoria" id="input-tags"/>
                     </div>
+                    <div class="container-tags">
                     <ul class="lista-tags" id="lista-tags">
-                            <li>
-                                    <p>Front-end</p>
-                                    <img src="./img/close-black.svg">
-                            </li>
+                            
                     </ul>
+                    </div>
                     <div class="container-botoes">
                             <button class="botao-descartar">Descartar</button>
                             <button class="botao-publicar">Publicar</button>

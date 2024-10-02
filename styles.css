@@ -120,9 +120,15 @@ textarea{
     border-radius: 4px;
 }
 
+.container-tags{
+    display: inline-block;
+    max-width: 50%;
+}
+
 
 .lista-tags{
     display:flex;
+    gap: 10px;
 }
 
 .container-botoes{
@@ -198,9 +204,11 @@ textarea{
     padding: 24px 16px;
     background-color: var(--secundary-color);
     border-radius: 8px;
-
 }
 
+.main-imagem{
+    max-width: 100%;
+}
 .container-upload-imagem button{
     margin: 16px 0 8px 0;
     background-color: var(--itens-background);
