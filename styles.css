@@ -3,6 +3,7 @@
     --text-color: #E1E1E1;
     --primary-color: #81FE88;
     --secundary-color: #888888;
+    --post-color: #dddddd;
     --tag-color: #171D1F;
     --font-family: "Prompt", sans-serif;
     --itens-background: #171D1F;
@@ -92,6 +93,17 @@ form div label{
     margin-bottom: 8px;
 }
 
+form div a{
+   font-size: 9px;
+   color: var(--text-color);
+   text-decoration: none;
+   border: #dddddd solid 1px;
+   border-radius: 3px;
+   margin: 1px;
+   padding: 3px;
+
+}
+
 form div input,
 textarea{
     width: 100%;
@@ -121,14 +133,22 @@ textarea{
 }
 
 .container-tags{
-    display: inline-block;
-    max-width: 50%;
+ /* Definir um tamanho máximo e ajustar para que o conteúdo caiba */
+ max-height: 150px; /* ajuste de acordo com o tamanho necessário */
+ overflow-y: auto; /* habilita o scroll se o conteúdo ultrapassar o tamanho */
+ padding: 2px; /* adicione algum preenchimento interno */
+ margin-top: 2px; /* espaço acima */
+ box-sizing: border-box; /* inclui padding e bordas no cálculo de largura/altura */
 }
 
 
 .lista-tags{
-    display:flex;
-    gap: 10px;
+    list-style-type: none; /* remove os marcadores da lista */
+    padding: 0; /* remove o padding padrão */
+    margin: 0; /* remove a margem padrão */
+    display: flex; /* organiza as tags em linha */
+    flex-wrap: wrap; /* permite que as tags "quebrem" para a próxima linha */
+    gap: 5px; /* espaço entre as tags */
 }
 
 .container-botoes{
@@ -193,10 +213,11 @@ textarea{
     width: 422px;
 }
 
-.main-image{
-    border-radius: 8px;
+.main-imagem{
+    width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* A imagem se ajusta dentro do espaço, sem ser cortada */
+    border-radius: 8px;
 }
 
 .container-imagem{
@@ -242,4 +263,54 @@ textarea{
     gap: 8px;
     color: var(--secundary-color);
     font-size: 15px;
+}
+
+
+.container-feed {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--itens-background);
+    border-radius: 8px;
+    width: 100%;
+}
+
+.post {
+    background-color: var(--post-color);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.post h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+    background-color: var(--tag-color);
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+.post img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.post p {
+    margin-bottom: 8px;
+    color: var(--itens-background)
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.post-tags span {
+    background-color: var(--tag-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--text-color);
 }

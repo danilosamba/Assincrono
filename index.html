@@ -52,17 +52,21 @@
     <main>
         <div class="container-upload-imagem">
                 <div class="container-imagem">
-                        <img src="./img/imagem1.png" alt="" class="main-imagem">
+                        <img src="./img/semImagem.png" alt="" class="main-imagem">
                 </div>
                 <button id="upload-btn">Carregar imagem</button>
                 <input type="file" id="image-upload" accept="image/png, image/jpeg, image/webp" style="display: none" />
                 <div class="container-imagem-nome">
-                        <p>image_projeto.png</p>
+                        <p>Carregue uma Imagem</p>
                         <img src="./img/close.svg">
+                </div>
+                <div class="container-feed" id="feed-container">
+                    <h2>Feed de Projetos</h2>
+                    <!-- Os posts serão adicionados aqui -->
                 </div>
         </div>
         <div class="container-descricao">
-            <h2>Novo projeto</h2>
+           
             <form>
                     <div>
                             <label for="nome">Nome do projeto</label>
@@ -73,7 +77,10 @@
                             <textarea id="descricao" name="descricao"></textarea>
                     </div>
                     <div>   
-                            <label for="categoria">Tags <sub style="font-size: 9px;">( FRONT-END, PROGRAMAÇÃO, DATA SCIENCE, FULL STACK, HTML, CSS, JAVASCRIPT )</sub></label>
+                        
+                            <label for="categoria">Tags</label>
+                            <p style="font-size: 9px;"><a href="#" class="tag" id="carregarFront"> FRONT-END</a> <a href="#" class="tag" id="carregarProgramacao"> PROGRAMAÇÃO</a> <a href="#" class="tag" id="carregarData"> DATA SCIENCE</a><a href="#" class="tag" id="carregarFull"> FULL STACK</a><a href="#" class="tag" id="carregarHTML"> HTML</a><a href="#" class="tag" id="carregarCss"> CSS</a><a href="#" class="tag" id="carregarJavascript"> JAVASCRIPT</a></p>
+                            <br>
                             <input type="text" oninput="this.value = this.value.toUpperCase();" name="categoria" id="input-tags"/>
                     </div>
                     <div class="container-tags">
@@ -86,8 +93,12 @@
                             <button class="botao-publicar">Publicar</button>
                     </div>
             </form>
+         
     </div>
+
+    
     </main>
+
     <script src="scripts.js"></script>
 </body>
 

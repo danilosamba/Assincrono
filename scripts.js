@@ -57,8 +57,6 @@ inputUpload.addEventListener("change", async (evento) => {
 const inputTags = document.getElementById("input-tags");
 const listaTags = document.getElementById("lista-tags");
 
-
-
 listaTags.addEventListener("click", (evento) => {
     if (evento.target.classList.contains("remove-tag")) {
         const tagQueQueremosRemover = evento.target.parentElement;
@@ -122,33 +120,79 @@ async function publicarProjeto (nomeDoProjeto, descricaoDoProjeto, tagsProjeto) 
     })
 }
 
+const feedContainer = document.getElementById("feed-container");
+
+
 botaoPublicar.addEventListener("click", async (evento) => {
-    
     evento.preventDefault();
 
-    const nomeDoProjeto = document.getElementById("nome").value;
+    const nomeDoProjeto = 'por: '+ document.getElementById("nome").value;
     const descricaoDoProjeto = document.getElementById("descricao").value;
     const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag) => tag.textContent);
+    const imagemSrc = imagemPrincipal.src;
 
-    try{
-        const resultado = await publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto);
-        alert("Projeto publicado com sucesso.")
-    } catch (error) {
-        console.log("Deu Ruim", error)
-        
-        alert("Erro ao publicar o projeto.")
-
+    // Verifica se o formulário está completo
+    if (nomeDoProjeto === "" || descricaoDoProjeto === "" || tagsProjeto.length === 0 || imagemSrc === "http://127.0.0.1:5500/img/semImagem.png") {
+        alert("Por favor, preencha todos os campos e carregue uma imagem.");
+        return;
     }
-})
 
-botaoDescartar.addEventListener("click", (evento) => {
-    evento.preventDefault();
-    
+    console.log(imagemSrc)
+    // Cria o novo post
+    const novoPost = document.createElement("div");
+    novoPost.classList.add("post");
+
+    // Adiciona o conteúdo do post
+    novoPost.innerHTML = `
+        <h3>${nomeDoProjeto}</h3>
+        <img src="${imagemSrc}" alt="Imagem do projeto ${nomeDoProjeto}">
+        <p>${descricaoDoProjeto}</p>
+        <div class="post-tags">
+            ${tagsProjeto.map(tag => `<span>${tag}</span>`).join("")}
+        </div>
+    `;
+
+    // Adiciona o post no feed
+    feedContainer.appendChild(novoPost);
     const formulario = document.querySelector("form");
+    // Reseta o formulário após a publicação
     formulario.reset();
-
-    imagemPrincipal.src = "./img/image1.png";
-    nomeDaImagem.textContent = "image_projeto.png";
-
+    imagemPrincipal.src = "./img/semImagem.png";
+    nomeDaImagem.textContent = "Carregue uma Imagem";
     listaTags.innerHTML = "";
-})
+    descricaoDoProjeto.textContent = "";
+});
+
+const botaoDescartar = document.querySelector(".botao-descartar");
+
+ botaoDescartar.addEventListener("click", (evento) => {
+     evento.preventDefault();
+    
+     const formulario = document.querySelector("form");
+     formulario.reset();
+
+     imagemPrincipal.src = "./img/semImagem.png";
+     nomeDaImagem.textContent = "";
+
+     listaTags.innerHTML = "";
+ })
+
+const carregarTags = document.getElementById("input-tags");
+
+// Seleciona todos os links de tags
+const tags = document.querySelectorAll('.tag');
+
+// Adiciona um evento de clique para cada tag
+tags.forEach(tag => {
+    tag.addEventListener('click', (evento) => {
+        evento.preventDefault(); // Impede que o link siga a URL
+        
+        // Obtém o texto da tag clicada
+        const tagText = tag.textContent.trim();
+
+        // Insere o texto da tag no input de tags
+        carregarTags.value = tagText;
+        console.log(carregarTags)
+        console.log(tags)
+    });
+});
